@@ -9,6 +9,10 @@ TagManager:
   - Obstacle
   - Wall
   - Door
+  - Death
+  - IceWall
+  - GhostPlatform
+  - TimeTrialCrystal
   layers:
   - Default
   - TransparentFX

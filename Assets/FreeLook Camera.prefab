@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1423615490564793795}
   - component: {fileID: 7104371468292699126}
   - component: {fileID: 2795523749734579885}
-  - component: {fileID: 6679521043735509660}
+  - component: {fileID: 3576673648559115277}
+  - component: {fileID: -5699133245133160563}
   m_Layer: 0
   m_Name: FreeLook Camera
   m_TagString: Untagged
@@ -30,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4487035718236047783}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13870122, y: -0.00000002951426, z: 0.000000004133618, w: 0.9903343}
-  m_LocalPosition: {x: 0, y: 3.5, z: -7}
+  m_LocalRotation: {x: 0.14067936, y: 4.5008582e-15, z: 3.2120294e-16, w: 0.99005526}
+  m_LocalPosition: {x: 0, y: 3.5, z: -44.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,7 +58,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 5429126516677670959, guid: 736d58c207b197e47804d81d0592a366, type: 3}
+    TrackingTarget: {fileID: 8930081768657774744, guid: 158046b79a9eaab4483bfad0f5a8a809, type: 3}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -246,7 +247,37 @@ MonoBehaviour:
         DecelTime: 0
   PlayerIndex: -1
   AutoEnableInputs: 1
---- !u!114 &6679521043735509660
+--- !u!114 &3576673648559115277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4487035718236047783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: 
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.5
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 0
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0.5
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
+--- !u!114 &-5699133245133160563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,9 +299,9 @@ MonoBehaviour:
       Enabled: 0
       YOffset: 0
     Damping: 0.5
-    SmoothingTime: 0
+    SmoothingTime: 0.2
   TerrainResolution:
-    Enabled: 1
+    Enabled: 0
     TerrainLayers:
       serializedVersion: 2
       m_Bits: 1

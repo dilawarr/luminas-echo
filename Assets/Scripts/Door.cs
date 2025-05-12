@@ -1,54 +1,46 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private string nextSceneName;
-    [SerializeField] private Renderer doorRenderer;
-    [SerializeField] private Color closedColor = new Color(0.36f, 0.26f, 0.13f); // brown
-    [SerializeField] private Color openColor = Color.black;
+    [SerializeField] private int nextSceneIndex;
+    [SerializeField] private Animator doorAnimator;
 
     private bool isOpen = false;
 
-    void Start()
+    private void Start()
     {
-        doorRenderer.material.color = closedColor;
+        if (doorAnimator == null)
+        {
+            doorAnimator = GetComponent<Animator>();
+        }
     }
 
     public void Open()
     {
         if (isOpen) return;
+
+        Debug.Log("Opened door");
         isOpen = true;
-
-        // Visual feedback (color change)
-        doorRenderer.material.color = openColor;
-
-        // Delay scene load (optional)
-        // Invoke(nameof(LoadNextScene), 1f); // wait 1 second before loading
+        doorAnimator.SetTrigger("OpenDoor");
     }
 
     public void Close()
     {
         if (!isOpen) return;
+
         isOpen = false;
-
-        doorRenderer.material.color = closedColor;
+        doorAnimator.SetTrigger("CloseDoor");
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isOpen) return;
+        if (!isOpen || !other.CompareTag("Player")) return;
 
-        if (other.CompareTag("Player"))
-        {
-            // LoadNextScene();
-            Invoke(nameof(LoadNextScene), 0.5f);
-        }
+        Invoke(nameof(LoadNextScene), 0.5f);
     }
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene(nextSceneName);
+        GameManager.Instance.LoadSceneByIndex(nextSceneIndex);
     }
 }
